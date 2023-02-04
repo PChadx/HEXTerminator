@@ -14,9 +14,9 @@ const ruPromoAdditionsArray = [
     links: [
       {
       prefix: ' ',
-      text: '1inch Network',
+      text: 'HEX Community',
       postfix: ' ',
-      link: 'https://jn3rg.app.link/c10FJKdtnpb'
+      link: 'https://https://hex.com/'
       }
     ],
     postlinks: '',
@@ -29,9 +29,9 @@ const enPromoAdditionsArray = [
     links: [
       {
       prefix: ' ',
-      text: '1inch Network',
+      text: 'HEX Community',
       postfix: ' ',
-      link: 'https://jn3rg.app.link/c10FJKdtnpb'
+      link: 'https://https://hex.com/'
       }
     ],
     postlinks: '',
