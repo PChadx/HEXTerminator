@@ -1,4 +1,4 @@
-const dotenv = require('dotenv')
+/* const dotenv = require('dotenv')
 dotenv.config({ path: `${__dirname}/../.env` })
 const axios = require('axios')
 const unflatten = require('flat').unflatten
@@ -33,4 +33,4 @@ const fs = require('fs')
     `export const localizations = ${JSON.stringify(unflattened, undefined, 2)}`
   )
   console.log('==== Saved object to the file')
-})()
+})() */
