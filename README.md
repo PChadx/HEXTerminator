@@ -28,7 +28,7 @@ And you should be good to go! Feel free to fork and submit pull requests. Thanks
 - `REPORT_CHAT_ID` — Telegram chat ID of the channel where the bot should report errors
 --------------------------
 
----- all of this out ----
+---- all of this out you can delete this and push----
 - `PREMIUM` — Whether the bot should be premium or not
 - `STRIPE_SECRET_KEY` — Stripe secret key
 - `STRIPE_SIGNING_SECRET` — Stripe signing secret
