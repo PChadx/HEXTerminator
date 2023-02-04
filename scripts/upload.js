@@ -1,3 +1,4 @@
+/*
 const dotenv = require('dotenv')
 dotenv.config({ path: `${__dirname}/../.env` })
 const axios = require('axios')
@@ -36,3 +37,4 @@ Object.keys(localizations).forEach((language) => {
     console.error(`==== Error posting: ${err.message}`)
   }
 })()
+*/
