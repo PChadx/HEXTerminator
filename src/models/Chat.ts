@@ -1,11 +1,12 @@
 import { prop, getModelForClass } from '@typegoose/typegoose'
 import { Message, ChatMember } from 'telegram-typings'
-
+/*
 export enum SubscriptionStatus {
   inactive = 'inactive',
   active = 'active',
   lifetime = 'lifetime',
 }
+*/
 
 export enum Language {
   ENGLISH = 'en',
@@ -150,10 +151,10 @@ export class Chat {
   restrictTime: number
   @prop({ required: true, default: false })
   banNewTelegramUsers: boolean
-  @prop({ enum: SubscriptionStatus, default: SubscriptionStatus.inactive })
+  /*@prop({ enum: SubscriptionStatus, default: SubscriptionStatus.inactive })
   subscriptionStatus: SubscriptionStatus
   @prop()
-  subscriptionId?: string
+  subscriptionId?: string */
 
   // mongo
   _id?: string

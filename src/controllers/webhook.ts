@@ -1,4 +1,4 @@
-import { ChatModel, SubscriptionStatus } from '@models/Chat'
+/*import { ChatModel, SubscriptionStatus } from '@models/Chat'
 import { Context } from 'koa'
 import { Controller, Ctx, Post } from 'amala'
 import { stripe } from '@helpers/stripe'
@@ -54,3 +54,4 @@ export default class WebhookController {
     }
   }
 }
+*/
