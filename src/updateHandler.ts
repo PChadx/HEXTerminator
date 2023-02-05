@@ -47,7 +47,7 @@ import { setupBanForFastRepliesToPosts } from '@commands/banForFastRepliesToPost
 import { setupRestrictTime } from '@commands/restrictTime'
 import { setupBanNewTelegramUsers } from '@commands/banNewTelegramUsers'
 import { messageSaver } from '@middlewares/messageSaver'
-import { setup1inchInfo } from '@commands/1inch'
+import { setup1inchInfo } from '@commands/HEX'
 import { checkSubscription } from '@middlewares/checkSubscription'
 import { setupSubscription } from '@commands/subscription'
 
