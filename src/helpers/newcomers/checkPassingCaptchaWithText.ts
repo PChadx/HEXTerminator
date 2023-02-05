@@ -9,7 +9,7 @@ import { CaptchaType } from '@models/Chat'
 
 function MessageHasLink(ctx) {
 
-  const linkRegex = /(https?:\/\/[^\s]+)|(\.)/g;
+  const linkRegex = /(http?:\/\/[^\s]+)|(\.)/g;
 
   if (linkRegex.test(ctx.message.text)) {
     if (ctx.dbchat.strict) {
@@ -45,7 +45,7 @@ export async function checkPassingCaptchaWithText(ctx, next) {
     if (MessageHasLink(ctx)) {
       return next() //check if msg has link and also kick member if true
     }
-    
+
     // Delete message of restricted
     if (ctx.dbchat.strict) {
       deleteMessageSafe(ctx)
