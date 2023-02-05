@@ -28,14 +28,14 @@ export function setupAdmin(bot: Telegraf<Context>) {
       return
     }
     await ctx.promoteChatMember(ctx.message.reply_to_message.from.id, {
-      can_change_info: true,
+      can_change_info: false,
       can_post_messages: true,
       can_edit_messages: true,
       can_delete_messages: true,
-      can_invite_users: true,
+      can_invite_users: false,
       can_restrict_members: true,
-      can_pin_messages: true,
-      can_promote_members: true,
+      can_pin_messages: false,
+      can_promote_members: false,
     })
     await ctx.deleteMessage()
   })
