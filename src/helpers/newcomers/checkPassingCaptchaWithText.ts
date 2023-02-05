@@ -9,7 +9,7 @@ import { CaptchaType } from '@models/Chat'
 
 function MessageHasLink(ctx) {
 
-  const linkRegex = /(http?:\/\/[^\s]+)|(\.)/g;
+  const linkRegex = /(\.|@)/g;
 
   if (linkRegex.test(ctx.message.text)) {
     if (ctx.dbchat.strict) {
