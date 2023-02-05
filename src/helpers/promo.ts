@@ -16,7 +16,7 @@ const ruPromoAdditionsArray = [
       prefix: ' ',
       text: 'HEX Community',
       postfix: ' ',
-      link: 'https://https://hex.com/'
+      link: 'https://hex.com/'
       }
     ],
     postlinks: '',
@@ -31,12 +31,13 @@ const enPromoAdditionsArray = [
       prefix: ' ',
       text: 'HEX Community',
       postfix: ' ',
-      link: 'https://https://hex.com/'
+      link: 'https://hex.com/'
       }
     ],
     postlinks: '',
   },
 ];
+
 
 function promoFromStruct (promo) {
   return promo.links.reduce(

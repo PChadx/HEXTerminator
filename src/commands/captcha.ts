@@ -6,6 +6,8 @@ import { checkIfFromReplier } from '@middlewares/checkIfFromReplier'
 import { CaptchaType } from '@models/Chat'
 import { checkLock } from '@middlewares/checkLock'
 
+//this is for admin commands 
+
 export function setupCaptcha(bot: Telegraf<Context>) {
   bot.command('captcha', checkLock, clarifyIfPrivateMessages, (ctx) => {
     ctx.replyWithMarkdown(
