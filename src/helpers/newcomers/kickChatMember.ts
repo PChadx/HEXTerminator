@@ -17,7 +17,7 @@ export async function kickChatMember(chat: DocumentType<Chat>, user: User) {
       chat.banUsers ? 0 : parseInt(`${new Date().getTime() / 1000 + 45}`)
     )
   } catch (err) {
-    report(err, kickChatMember.name)
+    report(err)
   }
   // Remove from candidates
   await modifyCandidates(chat, false, [user])

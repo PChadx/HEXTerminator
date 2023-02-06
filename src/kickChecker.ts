@@ -24,10 +24,8 @@ async function check() {
   checking = true
   try {
     console.log('Getting chats with candidates')
-    const start = Date.now()
-    const chats = await findChatsWithCandidates(Number(process.env.CHAT_LIMIT) || 200)
-    const end = Date.now()
-    console.log(`Found ${chats.length} chats with candidates in ${end - start} ms`)
+    const chats = await findChatsWithCandidates()
+    console.log(`Found ${chats.length} chats with candidates`)
     for (const chat of chats) {
       // Check candidates
       const candidatesToDelete = []

@@ -1,4 +1,14 @@
 node_modules
 dist
 .env
+.env.bak
+.env.test
+.now
+.vercel
 updates.log
+.vscode
+.json.save
+.log
+.test
+.env.sample.TEST
+/.github

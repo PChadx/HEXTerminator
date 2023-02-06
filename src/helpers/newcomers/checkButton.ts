@@ -46,7 +46,7 @@ export async function handleButtonPress(ctx: Context) {
       ctx.dbchat.greetsUsers
     )
   } catch (err) {
-    report(err, handleButtonPress.name)
+    report(err)
   } finally {
     buttonPresses[ctx.callbackQuery.data] = undefined
   }

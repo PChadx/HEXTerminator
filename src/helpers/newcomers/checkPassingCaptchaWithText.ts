@@ -7,23 +7,6 @@ import { greetUser } from '@helpers/newcomers/greetUser'
 import { modifyCandidates } from '@helpers/candidates'
 import { CaptchaType } from '@models/Chat'
 
-function MessageHasLink(ctx) {
-
-  const linkRegex = /(http?:\/\/[^\s]+)|(\.)/g;
-
-  if (linkRegex.test(ctx.message.text)) {
-    if (ctx.dbchat.strict) {
-      deleteMessageSafe(ctx);
-      ctx.telegram.kickChatMember(ctx.chat.id, ctx.from.id);
-    }
-    return true;
-  }
-
-return false;
-// we return false by default but if there is a link in the msg we return true 
-}
-
-
 export async function checkPassingCaptchaWithText(ctx, next) {
   // Check if it is a message is from a candidates
   if (
@@ -41,11 +24,6 @@ export async function checkPassingCaptchaWithText(ctx, next) {
   }
   // Check if it is a button captcha (shouldn't get to this function then)
   if (ctx.dbchat.captchaType === CaptchaType.BUTTON) {
-    
-    if (MessageHasLink(ctx)) {
-      return next() //check if msg has link and also kick member if true
-    }
-
     // Delete message of restricted
     if (ctx.dbchat.strict) {
       deleteMessageSafe(ctx)
@@ -60,11 +38,6 @@ export async function checkPassingCaptchaWithText(ctx, next) {
   // Check if it is digits captcha
   if (candidate.captchaType === CaptchaType.DIGITS) {
     // Check the format
-    
-    if (MessageHasLink(ctx)) {
-      return next() //check if msg has link and also kick member if true
-    }
-
     const hasCorrectAnswer = ctx.message.text.includes(
       candidate.equationAnswer as string
     )
@@ -82,12 +55,11 @@ export async function checkPassingCaptchaWithText(ctx, next) {
   // Check if it is image captcha
   if (candidate.captchaType === CaptchaType.IMAGE) {
     const hasCorrectAnswer = ctx.message.text.includes(candidate.imageText)
-    
-    if (MessageHasLink(ctx)) {
-      return next() //check if msg has link and also kick member if true
-    }
-
-    if (!hasCorrectAnswer) {
+    const hasPeriod = ctx.message.text.includes('.');
+    const hasAt = ctx.message.text.includes('@');
+    const hasForwardSlash = ctx.message.text.includes('/');
+    const hasBackSlash = ctx.message.text.includes("\\");
+    if (!hasCorrectAnswer || hasPeriod || hasAt || hasForwardSlash || hasBackSlash) {
       if (ctx.dbchat.strict) {
         deleteMessageSafe(ctx)
       }

@@ -36,7 +36,7 @@ export function setupTrust(bot: Telegraf<Context>) {
         can_add_web_page_previews: true,
       })
     } catch (err) {
-      report(err, setupTrust.name)
+      report(err)
     }
     // Unrestrict in shieldy
     modifyRestrictedUsers(ctx.dbchat, false, [{ id: repliedId } as Candidate])

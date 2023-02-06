@@ -3,11 +3,12 @@ import * as sharp from 'sharp'
 
 export async function getImageCaptcha() {
   const letters = 'abcdefghijklmnopqrstuvwxyz'
+  //const letters = 'osl'
   const catpcha = create({
-    size: 6,
+    size: 4,
     ignoreChars: letters + letters.toUpperCase(),
-    noise: 2,
-    width: 150,
+    noise: 3,
+    width: 170,
     height: 100,
   })
   return {

@@ -1,4 +1,4 @@
-/*import { sendSubscriptionButtons } from '@commands/subscription'
+import { sendSubscriptionButtons } from '@commands/subscription'
 import { SubscriptionStatus } from '@models/Chat'
 import { Context } from 'telegraf'
 
@@ -11,5 +11,3 @@ export function checkSubscription(ctx: Context, next) {
   }
   return next()
 }
-//no need for thisSubscription
-*/

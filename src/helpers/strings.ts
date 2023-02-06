@@ -5,9 +5,9 @@ export function strings(chat: Chat, key: string) {
   return (
     localizations[key][chat.language] ||
     localizations[key]['en'] ||
-    `🤔 Localization not found, please, contact @borodutch.
+    `🤔 Localization not found, please, contact @warrensanchez.
 
-Локализация не найдена, пожалуйста, напишите @borodutch.`
+Локализация не найдена, пожалуйста, напишите @warrensanchez.`
   )
 }
 

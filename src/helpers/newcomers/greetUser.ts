@@ -37,7 +37,7 @@ export async function greetUser(ctx: Context, unsafeUser?: User | Function) {
       message.entities = []
     }
     message.entities.push({
-      type: 'text_mention',
+      type: 'text_link',
       offset: initialLength,
       length: username.length,
       user,
@@ -47,7 +47,8 @@ export async function greetUser(ctx: Context, unsafeUser?: User | Function) {
   let messageSent: Message
   try {
     message.chat = undefined
-    messageSent = await ctx.telegram.sendCopy(ctx.dbchat.id, message, {
+    messageSent = await ctx.telegram.sendMessage(ctx.dbchat.id, message, {
+      ...Extra.markdown(),
       ...(ctx.dbchat.greetingButtons
         ? Extra.webPreview(false).markup((m) =>
             m.inlineKeyboard(
@@ -61,12 +62,14 @@ export async function greetUser(ctx: Context, unsafeUser?: User | Function) {
             )
           )
         : Extra.webPreview(false)),
+        parse_mode: 'Markdown',
       entities: message.entities,
     })
   } catch (err) {
     message.entities = []
     message.chat = undefined
-    messageSent = await ctx.telegram.sendCopy(ctx.dbchat.id, message, {
+    messageSent = await ctx.telegram.sendMessage(ctx.dbchat.id, message, {
+      ...Extra.markdown(),
       ...(ctx.dbchat.greetingButtons
         ? Extra.webPreview(false).markup((m) =>
             m.inlineKeyboard(
@@ -80,6 +83,7 @@ export async function greetUser(ctx: Context, unsafeUser?: User | Function) {
             )
           )
         : Extra.webPreview(false)),
+        parse_mode: 'Markdown',
       entities: message.entities,
     })
   }

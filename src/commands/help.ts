@@ -14,25 +14,17 @@ export function sendHelp(ctx: Context) {
       Date.now() / 1000 - ctx.update.message?.date
     )
   }
-  return ctx.replyWithMarkdown(getHelpText(ctx), {
+  return ctx.replyWithMarkdown(strings(ctx.dbchat, 'helpShieldy'), {
     disable_web_page_preview: true,
   })
 }
 
 export function sendHelpSafe(ctx: Context) {
   try {
-    return ctx.replyWithMarkdown(getHelpText(ctx), {
+    return ctx.replyWithMarkdown(strings(ctx.dbchat, 'helpShieldy'), {
       disable_web_page_preview: true,
     })
   } catch {
     // Do nothing
   }
-}
-
-function getHelpText(ctx: Context) {
-  let text = strings(ctx.dbchat, 'helpShieldy')
-  if (process.env.PREMIUM === 'true') {
-    text += '\n\n' + strings(ctx.dbchat, 'subscription')
-  }
-  return text
 }

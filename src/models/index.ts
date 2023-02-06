@@ -5,7 +5,6 @@ mongoose.connect(process.env.MONGO, {
   useCreateIndex: true,
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  socketTimeoutMS: 5000,
 })
 
 setGlobalOptions({

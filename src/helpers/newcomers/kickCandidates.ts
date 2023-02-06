@@ -33,7 +33,7 @@ export async function kickCandidates(chat: Chat, candidates: Candidate[]) {
         chat.banUsers ? 0 : parseInt(`${new Date().getTime() / 1000 + 45}`)
       )
     } catch (err) {
-      report(err, addKickedUser.name)
+      report(err)
     }
     // Try deleting their entry messages
     if (chat.deleteEntryOnKick) {
@@ -61,7 +61,7 @@ async function kickChatMemberProxy(
     chatMembersBeingKicked[id][candidateId] = true
     await bot.telegram.kickChatMember(id, candidateId, duration)
   } catch (err) {
-    report(err, kickChatMemberProxy.name)
+    report(err)
   } finally {
     if (chatMembersBeingKicked[id] && chatMembersBeingKicked[id][candidateId]) {
       delete chatMembersBeingKicked[id][candidateId]

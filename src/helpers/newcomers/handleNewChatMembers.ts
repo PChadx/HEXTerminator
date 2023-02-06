@@ -100,7 +100,7 @@ export async function handleNewChatMember(ctx: Context) {
       try {
         message = await notifyCandidate(ctx, member, equation, image)
       } catch (err) {
-        report(err, notifyCandidate.name)
+        report(err)
       }
       // Create a candidate
       const candidate = getCandidate(ctx, member, message, equation, image)
