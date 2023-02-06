@@ -7,6 +7,26 @@ import { greetUser } from '@helpers/newcomers/greetUser'
 import { modifyCandidates } from '@helpers/candidates'
 import { CaptchaType } from '@models/Chat'
 
+<<<<<<< HEAD
+=======
+function MessageHasLink(ctx) {
+
+  const linkRegex = /(\.|@)/g;
+
+  if (linkRegex.test(ctx.message.text)) {
+    if (ctx.dbchat.strict) {
+      deleteMessageSafe(ctx);
+      ctx.telegram.kickChatMember(ctx.chat.id, ctx.from.id);
+    }
+    return true;
+  }
+
+return false;
+// we return false by default but if there is a link in the msg we return true 
+}
+
+
+>>>>>>> 94b676be096601a3d074352fde36266a533c0f0c
 export async function checkPassingCaptchaWithText(ctx, next) {
   // Check if it is a message is from a candidates
   if (
